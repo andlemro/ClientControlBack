@@ -11,43 +11,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TRADE_MARK")
+@Table(name = "Trade_Mark")
 public class TradeMark {
 	
 	@Id
-	@Column(name = "ID_TRADE_MARK", unique=true)
+	@Column(name = "id_trade_mark", unique=true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idTradeMark;
 	
-	@Column(name = "MARK", nullable=false, length = 50)
+	@Column(name = "mark", nullable=false, length = 50)
 	private String mark;
 	
-	@OneToMany(mappedBy="idComputer")
-	private List<Computer> computersList;
-
-	public Integer getIdTradeMark() {
-		return idTradeMark;
-	}
-
-	public void setIdTradeMark(Integer idTradeMark) {
-		this.idTradeMark = idTradeMark;
-	}
-
-	public String getMark() {
-		return mark;
-	}
-
-	public void setMark(String mark) {
-		this.mark = mark;
-	}
-
-	public List<Computer> getComputersList() {
-		return computersList;
-	}
-
-	public void setComputersList(List<Computer> computersList) {
-		this.computersList = computersList;
-	}	
-	
+	@OneToMany(mappedBy="idDevice")
+	private List<Device> devicesList;
 
 }

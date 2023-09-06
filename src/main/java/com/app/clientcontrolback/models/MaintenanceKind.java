@@ -11,42 +11,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MAINTENANCE_KIND")
+@Table(name = "Maintenance_Kind")
 public class MaintenanceKind {
 	
 	@Id
-	@Column(name = "ID_MAINTENANCE_KIND", unique=true)
+	@Column(name = "id_maintenance_kind", unique=true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idMaintenanceKind;
 	
-	@Column(name = "KIND", nullable=false, length = 50)
+	@Column(name = "kind", nullable=false, length = 50)
 	private String kind;
 	
-	@OneToMany(mappedBy="idComputer")
-	private List<Computer> computersList;
-
-	public Integer getIdMaintenanceKind() {
-		return idMaintenanceKind;
-	}
-
-	public void setIdMaintenanceKind(Integer idMaintenanceKind) {
-		this.idMaintenanceKind = idMaintenanceKind;
-	}
-
-	public String getKind() {
-		return kind;
-	}
-
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
-
-	public List<Computer> getComputersList() {
-		return computersList;
-	}
-
-	public void setComputersList(List<Computer> computersList) {
-		this.computersList = computersList;
-	}	
+	@OneToMany(mappedBy="idDevice")
+	private List<Device> devicesList;
 
 }
