@@ -14,32 +14,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.clientcontrolback.interfaces.IComputerService;
-import com.app.clientcontrolback.models.Computer;
+import com.app.clientcontrolback.interfaces.IDeviceService;
+import com.app.clientcontrolback.models.Device;
 
 @RestController
 @RequestMapping("/Computers")
-public class ComputerController {
+public class DeviceController {
 	
 	@Autowired
-	private IComputerService iComputerService;
+	private IDeviceService iComputerService;
 	
-	public static final Logger LOGGER = Logger.getLogger(ComputerController.class.getName());
+	public static final Logger LOGGER = Logger.getLogger(DeviceController.class.getName());
 	
 	/****************************************************************************************/
 	
 	@GetMapping(value = "")
-	public List<Computer> listComputer() {
+	public List<Device> listComputer() {
 		
-		List<Computer> listComputers; 
+		List<Device> listComputers; 
 		
 		try {
-			ComputerController.LOGGER.info("Processing listComputerController().");
-			listComputers = this.iComputerService.listComputers();
-			ComputerController.LOGGER.info("listClientController --- OK");
+			DeviceController.LOGGER.info("Processing listComputerController().");
+			listComputers = this.iComputerService.listDevices();
+			DeviceController.LOGGER.info("listClientController --- OK");
 			return listComputers;
 		} catch(Exception e) {
-			ComputerController.LOGGER.warning("Error!! processing listComputerController(): " + e);
+			DeviceController.LOGGER.warning("Error!! processing listComputerController(): " + e);
 			return null;
 		}
 		
@@ -48,18 +48,18 @@ public class ComputerController {
 	/****************************************************************************************/
 	
 	@PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String createComputer(@RequestBody Computer computer) {	
+	public String createComputer(@RequestBody Device computer) {	
 		String response = "";
-		response = this.iComputerService.createComputer(computer);
+		response = this.iComputerService.createDevice(computer);
 		return response;
 	}
 	
 	/****************************************************************************************/
 	
 	@PutMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String editComputer(@RequestBody Computer computer) {
+	public String editComputer(@RequestBody Device computer) {
 		String response = "";
-		response = this.iComputerService.editComputer(computer);
+		response = this.iComputerService.editDevice(computer);
 		return response;
 	}
 	
@@ -68,7 +68,7 @@ public class ComputerController {
 	@DeleteMapping(value = "/delete/{id}")
 	public String deleteComputer(@PathVariable("id") Integer id) {
 		String response = "";
-		response = this.iComputerService.deleteComputer(id);
+		response = this.iComputerService.deleteDevice(id);
 		return response;
 	}
 
