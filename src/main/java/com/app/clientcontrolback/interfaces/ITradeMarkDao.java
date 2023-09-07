@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.clientcontrolback.models.TradeMark;
 
-public interface ITradeMarkRepo extends JpaRepository<TradeMark, Integer> {
+public interface ITradeMarkDao extends JpaRepository<TradeMark, Integer> {
 
 }

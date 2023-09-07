@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.clientcontrolback.interfaces.ITradeMarkRepo;
+import com.app.clientcontrolback.interfaces.ITradeMarkDao;
 import com.app.clientcontrolback.interfaces.ITradeMarkService;
 import com.app.clientcontrolback.models.TradeMark;
 
@@ -14,7 +14,7 @@ import com.app.clientcontrolback.models.TradeMark;
 public class TradeMarkService implements ITradeMarkService {
 	
 	@Autowired
-	private ITradeMarkRepo repo;
+	private ITradeMarkDao repo;
 	
 	public static final Logger LOGGER = Logger.getLogger(TradeMarkService.class.getName());
 

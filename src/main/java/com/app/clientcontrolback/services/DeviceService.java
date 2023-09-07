@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.clientcontrolback.interfaces.IDeviceRepo;
+import com.app.clientcontrolback.interfaces.IDeviceDao;
 import com.app.clientcontrolback.interfaces.IDeviceService;
 import com.app.clientcontrolback.models.Device;
 
@@ -14,7 +14,7 @@ import com.app.clientcontrolback.models.Device;
 public class DeviceService implements IDeviceService {
 	
 	@Autowired
-	private IDeviceRepo repo;
+	private IDeviceDao repo;
 	
 	public static final Logger LOGGER = Logger.getLogger(DeviceService.class.getName());
 

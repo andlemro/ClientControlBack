@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.clientcontrolback.models.MaintenanceKind;
 
-public interface IMaintenanceKindRepo extends JpaRepository<MaintenanceKind, Integer> {
+public interface IMaintenanceKindDao extends JpaRepository<MaintenanceKind, Integer> {
 
 }

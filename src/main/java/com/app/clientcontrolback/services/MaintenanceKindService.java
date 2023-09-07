@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.clientcontrolback.interfaces.IMaintenanceKindRepo;
+import com.app.clientcontrolback.interfaces.IMaintenanceKindDao;
 import com.app.clientcontrolback.interfaces.IMaintenanceKindService;
 import com.app.clientcontrolback.models.MaintenanceKind;
 
@@ -14,7 +14,7 @@ import com.app.clientcontrolback.models.MaintenanceKind;
 public class MaintenanceKindService implements IMaintenanceKindService {
 	
 	@Autowired
-	private IMaintenanceKindRepo repo;
+	private IMaintenanceKindDao repo;
 	
 	public static final Logger LOGGER = Logger.getLogger(MaintenanceKindService.class.getName());
 

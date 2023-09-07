@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.clientcontrolback.interfaces.IClientService;
-import com.app.clientcontrolback.interfaces.IClientRepo;
+import com.app.clientcontrolback.interfaces.IClientDao;
 import com.app.clientcontrolback.models.Client;
 
 @Service
 public class ClientService implements IClientService {
 	
 	@Autowired
-	private IClientRepo repo;
+	private IClientDao repo;
 	
 	public static final Logger LOGGER = Logger.getLogger(ClientService.class.getName());
 
