@@ -18,26 +18,26 @@ import com.app.clientcontrolback.interfaces.IDeviceService;
 import com.app.clientcontrolback.models.Device;
 
 @RestController
-@RequestMapping("/Computers")
+@RequestMapping("/Devices")
 public class DeviceController {
 	
 	@Autowired
-	private IDeviceService iComputerService;
+	private IDeviceService iDeviceService;
 	
 	public static final Logger LOGGER = Logger.getLogger(DeviceController.class.getName());
 	
 	/****************************************************************************************/
 	
 	@GetMapping(value = "")
-	public List<Device> listComputer() {
+	public List<Device> listDevices() {
 		
-		List<Device> listComputers; 
+		List<Device> listDevices; 
 		
 		try {
 			DeviceController.LOGGER.info("Processing listComputerController().");
-			listComputers = this.iComputerService.listDevices();
+			listDevices = this.iDeviceService.listDevices();
 			DeviceController.LOGGER.info("listClientController --- OK");
-			return listComputers;
+			return listDevices;
 		} catch(Exception e) {
 			DeviceController.LOGGER.warning("Error!! processing listComputerController(): " + e);
 			return null;
@@ -48,27 +48,35 @@ public class DeviceController {
 	/****************************************************************************************/
 	
 	@PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String createComputer(@RequestBody Device computer) {	
+	public String createDevice(@RequestBody Device device) {	
 		String response = "";
-		response = this.iComputerService.createDevice(computer);
+		response = this.iDeviceService.saveDevice(device);
 		return response;
 	}
 	
 	/****************************************************************************************/
 	
 	@PutMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String editComputer(@RequestBody Device computer) {
+	public String editDevice(@RequestBody Device device) {
 		String response = "";
-		response = this.iComputerService.editDevice(computer);
+		response = this.iDeviceService.saveDevice(device);
+		return response;
+	}
+	
+	/****************************************************************************************/
+	
+	@DeleteMapping(value = "/{id}")
+	public String deleteDevice(@PathVariable("id") Integer id) {
+		String response = "";
+		response = this.iDeviceService.deleteDevice(id);
 		return response;
 	}
 	
 	/****************************************************************************************/
 	
 	@DeleteMapping(value = "/delete/{id}")
-	public String deleteComputer(@PathVariable("id") Integer id) {
-		String response = "";
-		response = this.iComputerService.deleteDevice(id);
+	public Device getDeviceById(@PathVariable("id") Integer id) {
+		Device response = this.iDeviceService.getById(id);
 		return response;
 	}
 

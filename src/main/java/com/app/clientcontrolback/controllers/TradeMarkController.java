@@ -52,7 +52,7 @@ public class TradeMarkController {
 	@PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String createTradeMark(@RequestBody TradeMark tradeMark) {	
 		String response = "";
-		response = this.iTradeMarkService.createTradeMark(tradeMark);
+		response = this.iTradeMarkService.saveTradeMark(tradeMark);
 		return response;
 		
 	}
@@ -62,7 +62,7 @@ public class TradeMarkController {
 	@PutMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String editTradeMark(@RequestBody TradeMark tradeMark) {
 		String response = "";
-		response = this.iTradeMarkService.editTradeMark(tradeMark);
+		response = this.iTradeMarkService.saveTradeMark(tradeMark);
 		return response;
 	}
 	
@@ -75,5 +75,12 @@ public class TradeMarkController {
 		return response;
 	}
 	
+	/****************************************************************************************/
+	
+	@DeleteMapping(value = "/{id}")
+	public TradeMark getTradeMarkById(@PathVariable("id") Integer id) {
+		TradeMark response = this.iTradeMarkService.getTradeMarkById(id);
+		return response;
+	}	
 
 }
