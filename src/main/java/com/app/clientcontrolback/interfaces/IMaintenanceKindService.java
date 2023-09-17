@@ -8,10 +8,10 @@ public interface IMaintenanceKindService {
 	
 	public List<MaintenanceKind> listMaintenanceKind();
 	
-	public String createMaintenanceKind(MaintenanceKind maintenanceKind);
-	
-	public String editMaintenanceKind(MaintenanceKind maintenanceKind);
+	public String saveMaintenanceKind(MaintenanceKind maintenanceKind);
 	
 	public String deleteMaintenanceKind(Integer id);
+	
+	public MaintenanceKind getMaintenanceKindById(Integer id);
 
 }

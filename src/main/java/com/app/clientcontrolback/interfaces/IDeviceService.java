@@ -8,10 +8,10 @@ public interface IDeviceService {
 	
 	public List<Device> listDevices();
 	
-	public String createDevice(Device device);
-	
-	public String editDevice(Device device);
+	public String saveDevice(Device device);
 	
 	public String deleteDevice(Integer id);
+	
+	public Device getById(Integer id);
 
 }
