@@ -8,11 +8,10 @@ public interface ITradeMarkService {
 
 	public List<TradeMark> listTradeMark();
 	
-	public String createTradeMark(TradeMark tradeMark);
-	
-	public String editTradeMark(TradeMark tradeMark);
+	public String saveTradeMark(TradeMark tradeMark);
 	
 	public String deleteTradeMark(Integer id);
 	
+	public TradeMark getTradeMarkById(Integer id);	
 	
 }

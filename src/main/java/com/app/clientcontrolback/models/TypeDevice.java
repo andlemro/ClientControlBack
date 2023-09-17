@@ -1,13 +1,10 @@
 package com.app.clientcontrolback.models;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,18 +19,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "Maintenance_Kind")
-public class MaintenanceKind {
+@Table(name = "Type_Device")
+public class TypeDevice {
 	
 	@Id
-	@Column(name = "id_maintenance_kind", unique=true)
+	@Column(name = "id_type_device", unique=true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer idMaintenanceKind;
+	private Integer idTypeDevice;
 	
-	@Column(name = "kind", nullable=false, length = 50)
-	private String kind;
-	
-	@OneToMany(mappedBy="idDevice")
-	private List<Device> devicesList;
+	@Column(name = "name", nullable=false, length = 50)
+	private String name;
 
 }

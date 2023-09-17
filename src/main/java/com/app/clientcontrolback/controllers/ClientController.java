@@ -50,7 +50,7 @@ public class ClientController {
 	@PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String createClient(@RequestBody Client client) {	
 		String response = "";
-		response = this.iClientService.createClient(client);
+		response = this.iClientService.saveClient(client);
 		return response;	
 	}
 	
@@ -59,7 +59,7 @@ public class ClientController {
 	@PutMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String editClient(@RequestBody Client client) {
 		String response = "";
-		response = this.iClientService.editClient(client);
+		response = this.iClientService.saveClient(client);
 		return response;
 	}
 	
@@ -69,6 +69,14 @@ public class ClientController {
 	public String deleteClient(@PathVariable("id") Integer id) {
 		String response = "";
 		response = this.iClientService.deleteClient(id);
+		return response;
+	}
+	
+	/****************************************************************************************/
+	
+	@DeleteMapping(value = "/{id}")
+	public Client getClientById(@PathVariable("id") Integer id) {
+		Client response = this.iClientService.getById(id);
 		return response;
 	}
 	

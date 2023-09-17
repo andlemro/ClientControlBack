@@ -8,10 +8,10 @@ public interface IClientService {
 	
 	public List<Client> listClient();
 	
-	public String createClient(Client client);
-	
-	public String editClient(Client client);
+	public String saveClient(Client client);
 	
 	public String deleteClient(Integer id);
+	
+	public Client getById(Integer id);
 
 }

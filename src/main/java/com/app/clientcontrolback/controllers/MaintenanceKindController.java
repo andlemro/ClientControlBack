@@ -50,7 +50,7 @@ public class MaintenanceKindController {
 	@PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String createMaintenanceKind(@RequestBody MaintenanceKind maintenanceKind) {	
 		String response = "";
-		response = this.iMaintenanceKindService.createMaintenanceKind(maintenanceKind);
+		response = this.iMaintenanceKindService.saveMaintenanceKind(maintenanceKind);
 		return response;
 	}
 	
@@ -59,7 +59,7 @@ public class MaintenanceKindController {
 	@PutMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String editMaintenanceKind(@RequestBody MaintenanceKind maintenanceKind) {
 		String response = "";
-		response = this.iMaintenanceKindService.editMaintenanceKind(maintenanceKind);
+		response = this.iMaintenanceKindService.saveMaintenanceKind(maintenanceKind);
 		return response;
 	}
 	
@@ -69,6 +69,14 @@ public class MaintenanceKindController {
 	public String deleteTradeMark(@PathVariable("id") Integer id) {
 		String response = "";
 		response = this.iMaintenanceKindService.deleteMaintenanceKind(id);
+		return response;
+	}
+	
+	/****************************************************************************************/
+	
+	@DeleteMapping(value = "/{id}")
+	public MaintenanceKind getTradeMarkById(@PathVariable("id") Integer id) {
+		MaintenanceKind response = this.iMaintenanceKindService.getMaintenanceKindById(id);
 		return response;
 	}
 	
